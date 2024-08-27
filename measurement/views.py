@@ -4,6 +4,10 @@ from .serializers import *
 from rest_framework.decorators import action
 
 class SensorViewSet(viewsets.ModelViewSet):
+    """
+    Представление для датчиков, в случае с детальной записью - выводится специальный
+    сериализатор с измерениями.
+    """
     queryset = Sensor.objects.all()
     serializer_class = SensorSerializer
     
@@ -14,5 +18,8 @@ class SensorViewSet(viewsets.ModelViewSet):
             return SensorSerializer
     
 class MeasurementViewSet(viewsets.ModelViewSet):
+    """
+    Представление для измерений.
+    """
     queryset = Measurement.objects.all()
     serializer_class = MeasurementSerializer

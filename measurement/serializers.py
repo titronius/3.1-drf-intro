@@ -3,8 +3,8 @@ from .models import Sensor, Measurement
 
 class DynamicFieldsModelSerializer(serializers.ModelSerializer):
     """
-    A ModelSerializer that takes an additional `fields` argument that
-    controls which fields should be displayed.
+    Класс сериализатора, который принимает дополнительный аргумент fields,
+    благодаря которому можно управлять отображением полей у моделей.
     """
 
     def __init__(self, *args, **kwargs):
@@ -19,7 +19,6 @@ class DynamicFieldsModelSerializer(serializers.ModelSerializer):
                 self.fields.pop(field_name)
  
 class MeasurementSerializer(DynamicFieldsModelSerializer):
-    image = serializers.ImageField(max_length=None, use_url=True, allow_null=True, required=False)
     class Meta:
         model = Measurement
         fields = "__all__"
