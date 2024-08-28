@@ -1,7 +1,6 @@
 from rest_framework import viewsets
 from .models import *
 from .serializers import *
-from rest_framework.decorators import action
 
 class SensorViewSet(viewsets.ModelViewSet):
     """
